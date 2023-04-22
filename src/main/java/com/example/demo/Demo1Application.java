@@ -14,7 +14,7 @@ public class Demo1Application {
 
     public static void main(String[] args) {
 
-        String input = "https://kadikombatapi.azurewebsites.net/kadi/e1e1665b-c2dc-4f0e-9666-f10c62c5e631";
+        String input = "https://kadikombatapi.azurewebsites.net/kadi/00f72156-86ef-48f6-8982-ec5218c42cc1";
 
         HubConnection hubConnection = HubConnectionBuilder.create(input)
                 .build();
@@ -26,10 +26,7 @@ public class Demo1Application {
         },  playerListType);
 
         //This is a blocking call
-        hubConnection.start().doOnComplete(() -> {
-
-                }
-        );
+        hubConnection.start().blockingAwait();
 
     }
 
